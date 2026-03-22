@@ -4,9 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Object to 40-48 Redan Street Development | Mosman</title>
+  <meta name="description" content="Generate your objection to the proposed 10-storey development at 40-48 Redan Street, Mosman. Submissions close 30 March 2026." />
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen">
-  <div id="app"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 py-12 text-center">
+      <div class="inline-block bg-red-600 px-4 py-1.5 rounded text-xs font-bold tracking-wider mb-4">
+        SUBMISSIONS CLOSING SOON
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Stop the 10-Storey Tower on Redan Street</h1>
+      <p class="text-gray-300 max-w-xl mx-auto mb-6">
+        A State Significant Development proposes a 10-storey building at 40-48 Redan Street, Mosman
+        — towering over heritage homes in a scenic protection area. Have your say before it's too late.
+      </p>
+      <div id="countdown" class="mb-8"></div>
+      <a href="#concern-form" class="inline-block bg-red-600 text-white px-8 py-3.5 rounded-lg text-base font-bold hover:bg-red-700 transition-colors">
+        Have Your Say Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Concern Form -->
+  <section id="concern-form" class="max-w-3xl mx-auto px-4 py-12">
+    <h2 class="text-xl font-bold mb-1">Select Your Concerns</h2>
+    <p class="text-sm text-gray-500 mb-6">Tick the issues that matter to you. Each will be addressed in your generated objection.</p>
+
+    <div id="concerns"></div>
+
+    <div class="mt-6" id="tone-selector"></div>
+    <div class="mt-6" id="personal-note"></div>
+    <div class="mt-6" id="generate-button"></div>
+
+    <div id="output"></div>
+  </section>
+
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
