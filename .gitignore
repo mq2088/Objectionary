@@ -1,0 +1,25 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+
+## Node
+node_modules/
+client/dist/
+
+## Vite output (generated into wwwroot)
+src/Objectionary/wwwroot/
+
+## IDE
+.vs/
+.vscode/
+*.swp
+
+## Secrets
+appsettings.Development.json
+
+## Project tooling
+.claude/
+.superpowers/
+docs/
