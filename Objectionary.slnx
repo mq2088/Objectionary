@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Objectionary.Tests/Objectionary.Tests.csproj" />
+    <Project Path="src/Objectionary/Objectionary.csproj" />
+  </Folder>
+</Solution>
