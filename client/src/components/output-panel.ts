@@ -23,7 +23,7 @@ export function showOutput(
       <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-sm leading-relaxed whitespace-pre-wrap" id="objection-text">${escapeHtml(text)}</div>
       <div class="mt-4 p-3.5 bg-blue-50 rounded-lg text-sm">
         <strong>Next step:</strong> Copy the text above and paste it into your submission on the
-        <a href="https://www.planningportal.nsw.gov.au/major-projects/projects" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">
+        <a href="https://www.planningportal.nsw.gov.au/major-projects/projects/residential-development-fill-affordable-housing-40-48-redan-street-mosman" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">
           NSW Planning Portal
         </a>
       </div>
@@ -37,9 +37,12 @@ export function showOutput(
   });
 
   document.getElementById('regenerate-btn')!.addEventListener('click', async () => {
-    const btn = document.getElementById('regenerate-btn')!;
-    btn.textContent = 'Regenerating...';
-    btn.setAttribute('disabled', 'true');
+    const btn = document.getElementById('regenerate-btn')! as HTMLButtonElement;
+    btn.disabled = true;
+    btn.classList.add('opacity-50', 'cursor-not-allowed');
+    btn.innerHTML = '<span class="inline-flex items-center gap-2"><svg class="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>Regenerating...</span>';
+    const textEl = document.getElementById('objection-text')!;
+    textEl.innerHTML = '<div class="flex flex-col items-center justify-center py-8 text-gray-400"><svg class="animate-spin h-8 w-8 mb-3" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg><p>Regenerating your objection...</p></div>';
     await onRegenerate();
   });
 }
