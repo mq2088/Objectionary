@@ -18,9 +18,9 @@ builder.Services.AddSingleton(sp =>
 
 builder.Services.AddSingleton<ObjectionService>();
 
-// Rate limiting with structured 429 responses
-// Two separate policies are used because AddChainedLimiter is not available in this SDK version.
-// Both "burst" and "hourly" are applied to /api/generate via two RequireRateLimiting calls.
+// Rate limiting — disabled in Development environment for local testing
+var enableRateLimiting = !builder.Environment.IsDevelopment();
+
 builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = 429;
@@ -50,6 +50,9 @@ builder.Services.AddRateLimiter(options =>
     // Burst limit: 3 requests per minute per IP
     options.AddPolicy("burst", context =>
     {
+        if (!enableRateLimiting)
+            return RateLimitPartition.GetNoLimiter(string.Empty);
+
         var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
         return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
         {
@@ -61,6 +64,9 @@ builder.Services.AddRateLimiter(options =>
     // Hourly limit: 5 requests per hour per IP
     options.AddPolicy("hourly", context =>
     {
+        if (!enableRateLimiting)
+            return RateLimitPartition.GetNoLimiter(string.Empty);
+
         var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
         return RateLimitPartition.GetSlidingWindowLimiter(ip, _ => new SlidingWindowRateLimiterOptions
         {
