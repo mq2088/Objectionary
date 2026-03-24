@@ -23,3 +23,7 @@ appsettings.Development.json
 .claude/
 .superpowers/
 docs/
+
+## Azure deploy
+publish/
+deploy.zip
