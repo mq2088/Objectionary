@@ -4,6 +4,7 @@ export function initGenerateButton(
   container: HTMLElement,
   isEnabled: () => boolean,
   onGenerate: () => Promise<void>,
+  getHint?: () => string,
 ): void {
   function render() {
     const enabled = isEnabled() && !loading;
@@ -24,7 +25,7 @@ export function initGenerateButton(
         </button>
         ${loading
           ? '<div class="w-full bg-gray-200 rounded-full h-1.5 mt-3 overflow-hidden"><div class="bg-red-600 h-1.5 rounded-full animate-pulse" style="width: 100%"></div></div><p class="text-center text-xs text-gray-500 mt-2">This may take up to 30 seconds...</p>'
-          : '<p class="text-center text-xs text-gray-400 mt-2">Limited to 5 generations per hour.</p>'}
+          : `<p class="text-center text-xs text-gray-400 mt-2">${!enabled && getHint ? getHint() : 'Limited to 5 generations per hour.'}</p>`}
         <div id="generate-error" class="text-center text-sm text-red-600 mt-2"></div>
       </div>`;
 

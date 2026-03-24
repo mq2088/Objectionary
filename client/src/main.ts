@@ -37,4 +37,5 @@ initGenerateButton(
   document.getElementById('generate-button')!,
   () => getSelectedConcerns().length > 0,
   handleGenerate,
+  () => 'Select at least one concern above to generate your objection.',
 );
