@@ -1,7 +1,7 @@
 const MAX_LENGTH = 300;
 
 export function getPersonalNote(): string | undefined {
-  const textarea = document.getElementById('personal-note') as HTMLTextAreaElement | null;
+  const textarea = document.getElementById('personal-note-input') as HTMLTextAreaElement | null;
   const value = textarea?.value?.trim();
   return value || undefined;
 }
@@ -9,11 +9,11 @@ export function getPersonalNote(): string | undefined {
 export function initPersonalNote(container: HTMLElement): void {
   container.innerHTML = `
     <div>
-      <label class="text-sm font-semibold" for="personal-note">
+      <label class="text-sm font-semibold" for="personal-note-input">
         Add a personal note <span class="text-gray-400 font-normal">(optional)</span>
       </label>
       <textarea
-        id="personal-note"
+        id="personal-note-input"
         class="w-full mt-2 p-3 border border-gray-300 rounded-lg text-sm resize-y min-h-[60px] focus:outline-none focus:border-gray-500"
         maxlength="${MAX_LENGTH}"
         placeholder="e.g. I live two doors down and my children walk past this site to school every day..."></textarea>
@@ -22,7 +22,7 @@ export function initPersonalNote(container: HTMLElement): void {
       </div>
     </div>`;
 
-  const textarea = document.getElementById('personal-note') as HTMLTextAreaElement;
+  const textarea = document.getElementById('personal-note-input') as HTMLTextAreaElement;
   const counter = document.getElementById('char-count')!;
 
   textarea.addEventListener('input', () => {

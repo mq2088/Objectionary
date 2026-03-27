@@ -29,6 +29,8 @@ export function showOutput(
       </div>
     </div>`;
 
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   document.getElementById('copy-btn')!.addEventListener('click', async () => {
     await navigator.clipboard.writeText(text);
     const btn = document.getElementById('copy-btn')!;
