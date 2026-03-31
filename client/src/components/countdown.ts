@@ -82,7 +82,7 @@ function showLateNotice(): void {
   notice.id = 'late-notice';
   notice.className = 'text-red-400 text-sm mt-3 max-w-xl mx-auto';
   notice.textContent =
-    'The official submission period has already concluded on 30 March 2026 at 5pm, ' +
-    'but your objection may still be accepted if you submit by 2 April.';
+    'The official submission period via the portal has closed. ' +
+    'Objections can still be sent directly to Edwina Ross at edwina.ross@dpie.nsw.gov.au or by calling 02 9274 6120.';
   heroText.insertAdjacentElement('afterend', notice);
 }

@@ -22,10 +22,9 @@ export function showOutput(
       </div>
       <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 text-sm leading-relaxed whitespace-pre-wrap" id="objection-text">${escapeHtml(text)}</div>
       <div class="mt-4 p-3.5 bg-blue-50 rounded-lg text-sm">
-        <strong>Next step:</strong> Copy the text above and paste it into your submission on the
-        <a href="https://www.planningportal.nsw.gov.au/major-projects/projects/residential-development-fill-affordable-housing-40-48-redan-street-mosman" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">
-          NSW Planning Portal
-        </a>
+        <strong>Next step:</strong> Copy the text above and email it to
+        <a href="mailto:edwina.ross@dpie.nsw.gov.au" class="text-blue-600 underline hover:text-blue-800">edwina.ross@dpie.nsw.gov.au</a>
+        or contact Edwina Ross on 02 9274 6120.
       </div>
     </div>`;
 
